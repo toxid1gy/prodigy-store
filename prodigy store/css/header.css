@@ -1,0 +1,32 @@
+.header {
+  background-color: #111;
+  color: #fff;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .logo {
+  height: 40px;
+}
+
+.navbar {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5em;
+  transition: background 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  background-color: #00c896;
+  border-radius: 5px;
+}
