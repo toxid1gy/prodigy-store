@@ -2,72 +2,101 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Prodigy Store - Tu tienda de tecnología al mejor precio">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prodigy Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <header class="header">
-    <a href="index.html"><img src="assets/img/logo1.png" class="logo" alt="Logo Prodigy" width="40"/></a>
-    <nav>
-      <ul id="navbar" class="navbar">
-        <li><a class="active" href="index.html">Inicio</a></li>
-        <li><a href="#productos">Productos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li>
-          <a href="#" id="cart-icon">
-            <i class="fa fa-shopping-bag"></i>
-            <span id="cart-counter" class="cart-counter">0</span>
-          </a>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="assets/img/logo.webp" class="logo" alt="Prodigy Store" />
+      </a>
+    </div>
+    <nav class="nav">
+      <ul class="navbar">
+        <li><a href="#">Inicio</a></li>
+
+        <li class="dropdown">
+          <a href="#productos">Categorías</a>
+          <ul class="submenu">
+            <li><a href="#">Audio</a></li>
+            <li><a href="#">Carga</a></li>
+            <li><a href="#">Gaming</a></li>
+            <li><a href="#">Accesorios</a></li>
+            <li><a href="#">Smart</a></li>
+          </ul>
         </li>
+
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="login.html"><i class="fa fa-user"></i></a></li>
+        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i><span id="cart-counter">0</span></a></li>
+        <li><button id="modo-toggle" class="btn"><i class="fas fa-moon"></i></button></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Bienvenido a Prodigy Store</h1>
-        <p>Tu tecnología, al alcance de un clic</p>
-        <button>Ver Ofertas</button>
-      </div>
-    </section>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>PRODIGY STORE</h1>
+      <p>Ventas por mayor y menor - importadores directos</p>
+      <a href="#productos" class="btn">Ver Productos</a>
+    </div>
+  </section>
 
-    <section id="productos" class="productos-container">
-      <h2>Productos Destacados</h2>
-      <div id="product-list"></div>
+  <main>
+    <section id="productos" class="productos-section">
+      <h2>Categorías destacadas</h2>
+      <div id="botones-categorias" class="categorias"></div>
+      <input type="text" id="buscar-producto" placeholder="Buscar producto..." />
+      <div id="product-list" class="productos-grid"></div>
     </section>
 
     <section id="contacto" class="section-contacto">
       <h2>Contacto</h2>
-      <form action="https://formspree.io/f/tu_codigo_formspree" method="POST">
+      <form action="https://formspree.io/f/tu_form_id" method="POST">
         <input type="text" name="nombre" placeholder="Tu nombre" required />
-        <input type="email" name="email" placeholder="Tu correo electrónico" required />
-        <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+        <input type="email" name="email" placeholder="Tu correo" required />
+        <textarea name="mensaje" placeholder="Escribí tu mensaje" required></textarea>
         <button type="submit">Enviar</button>
       </form>
     </section>
-
-    <div id="cart-modal" class="cart-modal" style="display: none;">
-      <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2>Carrito de compras</h2>
-        <div id="cart-items"></div>
-        <h3>Total: $<span id="total-price">0</span></h3>
-        <button id="checkout-button">Finalizar Compra</button>
-      </div>
-    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Prodigy Store - Todos los derechos reservados</p>
+  <footer class="footer">
+    <p>&copy; El uso de este sitio web implica la aceptación de los Términos y Condiciones y de las Políticas de Privacidad. Las fotos son a modo ilustrativo. Los productos publicados son extraídos de fotos de internet. Los precios online para los productos presentados/publicados en Prodigy Store y/o Talento Tech son válidos exclusivamente para la muestra de manera académica.</p>
+    <div>
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/5490000000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
   </footer>
 
+  <div id="toast" class="toast">Producto agregado al carrito</div>
   <script src="js/script.js"></script>
+  <script>
+    const modoToggle = document.getElementById("modo-toggle");
+    modoToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      const icon = modoToggle.querySelector("i");
+      icon.classList.toggle("fa-moon");
+      icon.classList.toggle("fa-sun");
+    });
+  </script>
+
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/68687d74be8a1b1910b83c27/1ivc2k3sb';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
 </body>
 </html>

@@ -1,32 +1,41 @@
-.header {
+.dropdown {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
   background-color: #111;
-  color: #fff;
-  padding: 1em 2em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 0.5rem 0;
+  display: none;
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 999;
+  border-radius: 4px;
 }
 
-.header .logo {
-  height: 40px;
-}
-
-.navbar {
-  display: flex;
-  gap: 1em;
+.submenu li {
   list-style: none;
 }
 
-.navbar a {
-  color: #fff;
+.submenu li a {
+  display: block;
+  padding: 10px 16px;
+  color: white;
   text-decoration: none;
-  font-weight: 500;
-  padding: 0.5em;
   transition: background 0.3s;
+  white-space: nowrap;
 }
 
-.navbar a:hover,
-.navbar a.active {
+.submenu li a:hover {
   background-color: #00c896;
-  border-radius: 5px;
+}
+
+.dropdown:hover .submenu {
+  display: flex;
+}
+
+.navbar > li {
+  position: relative;
 }

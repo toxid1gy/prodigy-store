@@ -1,50 +1,365 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body {
+  background: linear-gradient(to right, #dbeafe, #f0f9ff);
   font-family: 'Spartan', sans-serif;
+  color: #333;
 }
 
-body {
-  background: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
-}
 
 .header {
-  background: #111;
-  color: #fff;
-  padding: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  background-color: #111;
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.logo {
+  height: 40px;
 }
 
 .navbar {
   list-style: none;
   display: flex;
-  gap: 1em;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-top: 1rem;
 }
 
-.navbar a {
+.navbar li a {
   color: white;
   text-decoration: none;
+  font-weight: 500;
 }
 
+.navbar li a.active {
+  border-bottom: 2px solid #00c896;
+}
+
+#cart-counter {
+  background: red;
+  border-radius: 50%;
+  padding: 0 6px;
+  color: white;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #111;
+  padding: 0.5rem 0;
+  display: none;
+  flex-direction: column;
+  min-width: 160px;
+  z-index: 999;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.submenu li {
+  list-style: none;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 16px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.submenu li a:hover {
+  background-color: #00c896;
+}
+
+.dropdown:hover .submenu {
+  display: flex;
+}
+
+.navbar > li {
+  position: relative;
+}
+
+/* === HERO === */
 .hero {
   background: linear-gradient(to right, #141e30, #243b55);
   color: white;
   text-align: center;
-  padding: 2em;
+  padding: 4rem 2rem;
 }
 
-.productos-container {
-  padding: 2em;
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
 }
 
-footer {
-  text-align: center;
-  padding: 1em;
-  background: #222;
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: #00c896;
   color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 999px;
+  transition: background 0.3s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #009a74;
+  transform: scale(1.05);
+}
+
+/* === CATEGORÍAS === */
+.categorias {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn.active {
+  background-color: #111;
+  color: white;
+}
+
+#buscar-producto {
+  padding: 10px 16px;
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem auto;
+  display: block;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+
+#buscar-producto:focus {
+  box-shadow: 0 0 5px rgba(0, 200, 150, 0.6);
+}
+
+/* === PRODUCTOS === */
+.productos-section {
+  padding: 2rem;
+  background: #fff;
+  text-align: center;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.producto-card {
+  background: #fefefe;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.producto-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.producto-card h3 {
+  font-size: 18px;
+  margin-bottom: 0.5rem;
+}
+
+.producto-card p {
+  font-size: 16px;
+  margin-bottom: 1rem;
+}
+
+.producto-card button {
+  background: #111;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.producto-card button:hover {
+  background: #00c896;
+}
+
+.section-contacto {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.section-contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-contacto input,
+.section-contacto textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.section-contacto button {
+  padding: 12px;
+  background-color: #00c896;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.footer a {
+  color: white;
+  margin: 0 8px;
+  font-size: 20px;
+}
+
+.footer a:hover {
+  color: #00c896;
+}
+
+/* === TOAST === */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #111;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 9999;
+}
+
+.toast.active {
+  opacity: 1;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .producto-card img {
+    height: 150px;
+  }
+
+  .productos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .section-contacto {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark .productos-section,
+body.dark .section-contacto {
+  background-color: #1e1e1e;
+}
+
+body.dark .producto-card {
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+
+body.dark .footer {
+  background-color: #000;
+}
+
+body.dark .submenu {
+  background-color: #222;
+}
+
+body.dark .submenu li a:hover {
+  background-color: #00c896;
 }
