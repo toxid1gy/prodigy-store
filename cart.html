@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito - Prodigy Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/cart.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <img src="assets/img/logo.webp" class="logo" alt="Prodigy Store" />
+    </div>
+    <nav class="nav">
+      <ul class="navbar">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="productos-section">
+    <h2>Carrito de Compras</h2>
+    <div id="cart-items" class="productos-grid"></div>
+    <h3>Total: $<span id="total-price">0</span></h3>
+    <button id="finalizar-compra">Finalizar Compra</button>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Prodigy Store - Todos los derechos reservados</p>
+    <div>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </footer>
+</body>
+<script type="text/javascript">
+var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+(function() {
+  var s1 = document.createElement("script"),
+      s0 = document.getElementsByTagName("script")[0];
+  s1.async = true;
+  s1.src = 'https://embed.tawk.to/f0324ac0bc8e1f78cac50e32ed5903d57a8b52b8/1hvupdk3h';
+  s1.charset = 'UTF-8';
+  s1.setAttribute('crossorigin', '*');
+  s0.parentNode.insertBefore(s1, s0);
+})();
+</script>
+</html>

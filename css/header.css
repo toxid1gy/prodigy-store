@@ -1,0 +1,41 @@
+.dropdown {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #111;
+  padding: 0.5rem 0;
+  display: none;
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 999;
+  border-radius: 4px;
+}
+
+.submenu li {
+  list-style: none;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 16px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.submenu li a:hover {
+  background-color: #00c896;
+}
+
+.dropdown:hover .submenu {
+  display: flex;
+}
+
+.navbar > li {
+  position: relative;
+}
